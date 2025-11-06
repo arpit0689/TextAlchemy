@@ -1,59 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TextAlchemy - AI Humanizer</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TextAlchemy ✨</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="hero-content">
-      <h1>TextAlchemy ✨</h1>
-      <p>Turn your text into natural, polished prose instantly.</p>
-      <button id="darkModeToggle">🌙 Dark Mode</button>
+  <nav class="navbar">
+    <div class="brand">🪄 TextAlchemy</div>
+    <div class="nav-actions">
+      <button id="darkModeToggle" aria-label="Toggle dark mode">🌙</button>
     </div>
-    <div class="hero-illustration">
-      <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="AI Illustration">
-    </div>
-  </header>
+  </nav>
 
-  <!-- Main Editor Section -->
-  <main>
-    <section class="card input-card">
-      <h2>Enter Your Text</h2>
-      <textarea id="inputText" placeholder="Paste or type your content here..."></textarea>
-      <div class="counter">
-        <span id="charCount">0</span> characters | <span id="wordCount">0</span> words
+  <main class="wrap">
+    <header class="hero">
+      <h1>TextAlchemy — AI Text Humanizer</h1>
+      <p class="subtitle">Humanize • Summarize • Change Tone</p>
+    </header>
+
+    <section class="card">
+      <h2>Input</h2>
+      <textarea id="inputText" placeholder="Paste or type text here..."></textarea>
+      <div class="meta">
+        <div class="counts">
+          <span>Chars: <span id="charCount">0</span></span>
+          <span>Words: <span id="wordCount">0</span></span>
+        </div>
+        <button id="processBtn" class="primary">Process</button>
       </div>
     </section>
 
-    <section class="card tabs-card">
-      <div class="tabs">
-        <button class="tab-btn active" data-action="humanize">Humanize</button>
-        <button class="tab-btn" data-action="summarize">Summarize</button>
-        <button class="tab-btn" data-action="formal">Formal</button>
-        <button class="tab-btn" data-action="casual">Casual</button>
+    <section class="card">
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" data-action="humanize">✨ Humanize</button>
+        <button class="tab-btn" data-action="summarize">🧠 Summarize</button>
+        <button class="tab-btn" data-action="formal">💼 Formal</button>
+        <button class="tab-btn" data-action="casual">😎 Casual</button>
       </div>
     </section>
 
-    <section class="card output-card hidden" id="outputContainer">
+    <section class="card hidden" id="outputCard">
       <h2>Result</h2>
-      <div class="loader hidden" id="loader"></div>
-      <p id="outputText"></p>
+      <div id="loader" class="loader hidden" aria-hidden="true"></div>
+      <div id="outputText" class="output"></div>
+
       <div class="output-actions">
         <button id="regenerateBtn">🔁 Regenerate</button>
         <button id="copyBtn">📋 Copy</button>
+        <button id="downloadBtn">⬇️ Download</button>
       </div>
-    </section>
-  </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>Powered by Gemini AI | <a href="#">GitHub</a></p>
-  </footer>
+      <div id="status" class="status"></div>
+    </section>
+
+    <footer class="footer">
+      <small>Built by Arpit • Backend: http://localhost:5000</small>
+    </footer>
+  </main>
 
   <script src="script.js"></script>
 </body>
